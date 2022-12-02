@@ -1,5 +1,5 @@
 # qb-fitbit
-FitBit For QB-Core
+FitBit For QB-Core working on adapting to a cool apple watch with many features
 
 # License
 
