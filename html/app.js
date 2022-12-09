@@ -2,103 +2,106 @@ var openedApp = ".main-screen";
 qbFitbit = {};
 
 $(document).ready(function () {
-  // console.log('Fitbit is loaded..')
+    // console.log('Fitbit is loaded..')
 
-  window.addEventListener("message", function (event) {
-    var eventData = event.data;
+    window.addEventListener("message", function (event) {
+        var eventData = event.data;
 
-    if (eventData.action == "openWatch") {
-      qbFitbit.Open();
-    }
-  });
+        if (eventData.action == "openWatch") {
+            qbFitbit.Open();
+        }
+    });
 });
 
 $(document).on("keydown", function () {
-  switch (event.keyCode) {
-    case 27:
-      qbFitbit.Close();
-      break;
-  }
+    switch (event.keyCode) {
+        case 27:
+            qbFitbit.Close();
+            break;
+    }
 });
 
 qbFitbit.Open = function () {
-  $(".container").fadeIn(150);
+    $(".container").fadeIn(150);
 };
 
 qbFitbit.Close = function () {
-  $(".container").fadeOut(150);
-  $.post("https://qb-fitbit/close");
+    $(".container").fadeOut(150);
+    $.post("https://qb-fitbit/close");
 };
 
 $(document).on("click", ".fitbit-app", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  var pressedApp = $(this).data("app");
+    var pressedApp = $(this).data("app");
 
-  $(openedApp).css({ display: "none" });
-  $("." + pressedApp + "-app").css({ display: "block" });
-
-  openedApp = pressedApp;
-  $(document).on("contextmenu", function () {
-    console.log("right click");
-
-    // $(".main-screen").css({ display: "flex" });
-  });
+    $(openedApp).css({ display: "none" });
+    $("." + pressedApp + "-app").css({ display: "block" });
+    console.log(pressedApp);
+    openedApp = pressedApp;
+    $(document).on("contextmenu", function () {
+        console.log("right click");
+        $("." + openedApp + "-app").css({ display: "none" });
+        $(".main-screen").css({ display: "flex" });
+        openedApp = ".main-screen";
+    });
 });
 
 // event listener for on right click
 if (openedApp == ".main-screen") {
-  console.log("main screen");
+    console.log("main screen");
 } else {
-  $(document).on("contextmenu", function () {
-    console.log("right click");
-  });
+    $(document).on("contextmenu", function () {
+        console.log("right click");
+    });
 }
 
 $(document).on("click", ".back-food-settings", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  $(".food-app").css({ display: "none" });
-  $(".main-screen").css({ display: "flex" });
+    $(".food-app").css({ display: "none" });
+    $(".main-screen").css({ display: "flex" });
 
-  openedApp = ".main-screen";
+    openedApp = ".main-screen";
 });
 
 $(document).on("click", ".back-thirst-settings", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  $(".thirst-app").css({ display: "none" });
-  $(".main-screen").css({ display: "flex" });
+    $(".thirst-app").css({ display: "none" });
+    $(".main-screen").css({ display: "flex" });
 
-  openedApp = ".main-screen";
+    openedApp = ".main-screen";
 });
 
 $(document).on("click", ".save-food-settings", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  var foodValue = $(this).parent().parent().find("input");
+    var foodValue = $(this).parent().parent().find("input");
 
-  if (parseInt(foodValue.val()) <= 100) {
-    $.post(
-      "https://qb-fitbit/setFoodWarning",
-      JSON.stringify({
-        value: foodValue.val(),
-      })
-    );
-  }
+    if (parseInt(foodValue.val()) <= 100) {
+        $.post(
+            "https://qb-fitbit/setFoodWarning",
+            JSON.stringify({
+                value: foodValue.val(),
+            })
+        );
+    }
 });
 
 $(document).on("click", ".save-thirst-settings", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  var thirstValue = $(this).parent().parent().find("input");
+    var thirstValue = $(this).parent().parent().find("input");
 
-  if (parseInt(thirstValue.val()) <= 100) {
-    $.post(
-      "https://qb-fitbit/setThirstWarning",
-      JSON.stringify({
-        value: thirstValue.val(),
-      })
-    );
-  }
+    if (parseInt(thirstValue.val()) <= 100) {
+        $.post(
+            "https://qb-fitbit/setThirstWarning",
+            JSON.stringify({
+                value: thirstValue.val(),
+            })
+        );
+    }
 });
+
+// on right click
