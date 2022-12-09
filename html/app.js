@@ -42,8 +42,8 @@ $(document).on("click", ".fitbit-app", function (e) {
     $(document).on("contextmenu", function () {
         console.log("right click");
         $("." + openedApp + "-app").css({ display: "none" });
-        $(".main-screen").css({ display: "flex" });
         openedApp = ".main-screen";
+        $(".main-screen").css({ display: "flex" });
     });
 });
 
