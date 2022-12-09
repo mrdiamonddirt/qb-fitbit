@@ -11,6 +11,25 @@ p {
     display: block;
 }
 
+.setting-app {
+    display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.setting-setting {
+    position: absolute;
+    display: flex;
+    width: 70%;
+    height: 50%;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 4vh;
+}
+
 .watch {
     position: absolute;
     height: 35vh;
@@ -39,12 +58,13 @@ span {
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
     margin-top: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
 }
@@ -95,6 +115,74 @@ span {
     height: 100%;
     width: 100%;
     text-align: center;
+}
+
+.camera-app {
+    display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.camera-setting {
+    position: absolute;
+    display: flex;
+    width: 70%;
+    height: 50%;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 4vh;
+}
+
+.map-app {
+    display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* .map-setting {
+    position: absolute;
+    display: flex;
+    width: 70%;
+    height: 50%;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 4vh;
+} */
+
+.map {
+    position: absolute;
+    height: 100vw;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    /* width: 100%; */
+}
+
+.settings-app {
+    display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.settings-setting {
+    position: absolute;
+    display: block;
+    width: 70%;
+    height: 50%;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 4vh;
 }
 
 .app-titel {
@@ -209,4 +297,8 @@ input[type="number"] {
 .fitbit-app > i {
     padding-top: 1vh;
     font-size: 1.8vh;
+}
+
+.fa {
+    transform: translateY(-50%);
 }
