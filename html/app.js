@@ -104,4 +104,13 @@ $(document).on("click", ".save-thirst-settings", function (e) {
     }
 });
 
-// on right click
+// when open map app list for double click
+$(document).on("dblclick", ".map-app", function (e) {
+    e.preventDefault();
+
+    // increase size of map image
+    $(".map").css({ width: calc("100%" + "100%") });
+
+    console.log("map app double click");
+    // $.post("https://qb-fitbit/MapApp");
+});
