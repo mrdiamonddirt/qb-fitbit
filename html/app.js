@@ -164,6 +164,15 @@ $(document).on("click", ".locationButton", function (e) {
 $(document).on("click", ".calculator-app .calcButton", function (e) {
     e.preventDefault();
     console.log("number clicked", e.target.value);
+    if (e.target.value == "C") {
+        $(".calculator-app .calculator-display").val("");
+        return;
+    }
+    if (e.target.value == "=") {
+        var sum = eval($(".calculator-app .calculator-display").val());
+        $(".calculator-app .calculator-display").val(sum);
+        return;
+    }
     var number = e.target.value;
     var screen = $(".calculator-app .calculator-display");
     console.log(screen.val());

@@ -289,6 +289,8 @@ span {
     height: 100%;
     width: 100%;
     text-align: center;
+    overflow: hidden;
+    /* add webkit scroll bar to css rule */
 }
 
 .calculator-setting {
@@ -302,21 +304,24 @@ span {
     margin: 0;
     left: 0;
     right: 0;
-    top: 4vh;
+    top: 2vh;
 }
 
 .calculator-display {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: row;
     /* align-items: center; */
-    justify-content: center;
-    width: 70%;
-    height: 50%;
+    /* justify-content: center; */
+    width: 90%;
+    padding: 0;
+    text-align: end;
+    /* height: 25px; */
+    font-size: 10px;
     margin: 0;
     left: 0;
     right: 0;
-    top: 4vh;
+    top: 0;
 }
 
 .calcButton {
