@@ -76,8 +76,8 @@ span {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
     box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
 }

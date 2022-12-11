@@ -79,31 +79,31 @@ $(document).on("click", ".fitbit-app", function (e) {
 });
 
 // event listener for on right click
-if (openedApp == ".main-screen") {
-    console.log("main screen");
-    $(document).on("contextmenu", function () {
-        console.log("right click menu");
-        $(".main-screen").css({ display: "none" });
-        console.log(openedApp);
-        openedApp = ".clock-app";
-        console.log(openedApp);
-        $(".clock-app").css({ display: "flex" });
-        console.log("clock app");
-    });
-}
+// if (openedApp == ".main-screen") {
+//     console.log("main screen");
+//     $(document).on("contextmenu", ".main-screen", function () {
+//         console.log("right click menu");
+//         $(".main-screen").css({ display: "none" });
+//         console.log(openedApp);
+//         openedApp = ".clock-app";
+//         console.log(openedApp);
+//         $(".clock-app").css({ display: "flex" });
+//         console.log("clock app");
+//     });
+// }
 
-if (openedApp == ".clock-app") {
-    console.log("clock screen");
-    $(document).on("contextmenu", function () {
-        console.log("right click clock");
-        $(".clock-app").css({ display: "none" });
-        console.log(openedApp);
-        $(".main-screen").css({ display: "flex" });
-        openedApp = ".main-screen";
-        console.log(openedApp);
-        console.log("main app");
-    });
-}
+// if (openedApp == ".clock-app") {
+//     console.log("clock screen");
+//     $(document).on("contextmenu", ".clock-app", function () {
+//         console.log("right click clock");
+//         $(".clock-app").css({ display: "none" });
+//         console.log(openedApp);
+//         $(".main-screen").css({ display: "flex" });
+//         openedApp = ".main-screen";
+//         console.log(openedApp);
+//         console.log("main app");
+//     });
+//}
 
 $(document).on("click", ".back-food-settings", function (e) {
     e.preventDefault();
@@ -177,6 +177,23 @@ $(document).on("click", ".locationButton", function (e) {
 });
 
 // js for calculator app
+
+// if input box selected and enter pressed run eval function
+$(document).on("keydown", ".calculator-app .calculator-display", function (e) {
+    if (e.keyCode == 13) {
+        var sum = eval($(".calculator-app .calculator-display").val());
+        $(".calculator-app .calculator-display").val(sum);
+        return;
+    }
+});
+
+// if input box selected and delete pressed clear input box
+$(document).on("keydown", ".calculator-app .calculator-display", function (e) {
+    if (e.keyCode == 8) {
+        $(".calculator-app .calculator-display").val("");
+        return;
+    }
+});
 
 // when click on calculator app button add the number to the calculator screen
 $(document).on("click", ".calculator-app .calcButton", function (e) {
