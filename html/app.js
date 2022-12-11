@@ -81,9 +81,27 @@ $(document).on("click", ".fitbit-app", function (e) {
 // event listener for on right click
 if (openedApp == ".main-screen") {
     console.log("main screen");
-} else {
     $(document).on("contextmenu", function () {
-        console.log("right click");
+        console.log("right click menu");
+        $(".main-screen").css({ display: "none" });
+        console.log(openedApp);
+        openedApp = ".clock-app";
+        console.log(openedApp);
+        $(".clock-app").css({ display: "flex" });
+        console.log("clock app");
+    });
+}
+
+if (openedApp == ".clock-app") {
+    console.log("clock screen");
+    $(document).on("contextmenu", function () {
+        console.log("right click clock");
+        $(".clock-app").css({ display: "none" });
+        console.log(openedApp);
+        $(".main-screen").css({ display: "flex" });
+        openedApp = ".main-screen";
+        console.log(openedApp);
+        console.log("main app");
     });
 }
 
