@@ -157,3 +157,16 @@ $(document).on("click", ".locationButton", function (e) {
     // get location
     // $.post("https://qb-fitbit/GetLocation");
 });
+
+// js for calculator app
+
+// when click on calculator app button add the number to the calculator screen
+$(document).on("click", ".calculator-app .calcButton", function (e) {
+    e.preventDefault();
+    console.log("number clicked", e.target.value);
+    var number = e.target.value;
+    var screen = $(".calculator-app .calculator-display");
+    console.log(screen.val());
+    screen.val(screen.val() + number);
+    console.log(screen.val());
+});
