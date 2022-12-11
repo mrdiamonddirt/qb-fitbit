@@ -1,6 +1,37 @@
 var openedApp = ".main-screen";
 qbFitbit = {};
 
+// get time and date from browser
+qbFitbit.GetTime = function () {
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    var time = hours + ":" + minutes + ":" + seconds;
+    var date = day + "/" + month + "/" + year;
+    return { time: time, date: date };
+};
+// time = qbFitbit.GetTime();
+// date = qbFitbit.GetTime();
+
+console.log(qbFitbit.GetTime().time);
+console.log(qbFitbit.GetTime().date);
+
+//  set returned time and date to html
+qbFitbit.SetTime = function (time, date) {
+    document.getElementById("time").innerHTML = time;
+    document.getElementById("date").innerHTML = date;
+};
+// update clock every second
+setInterval(function () {
+    time = qbFitbit.GetTime().time;
+    date = qbFitbit.GetTime().date;
+    qbFitbit.SetTime(time, date);
+}, 1000);
+
 $(document).ready(function () {
     // console.log('Fitbit is loaded..')
 
