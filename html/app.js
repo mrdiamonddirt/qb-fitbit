@@ -145,3 +145,15 @@ $(document).on("dblclick", ".map-app", function (e) {
     console.log("map app double click");
     // $.post("https://qb-fitbit/MapApp");
 });
+
+// when click on location button run faux getting location script
+$(document).on("click", ".locationButton", function (e) {
+    e.preventDefault();
+    $(".mapdata-container").css({ display: "flex" });
+    setTimeout(function () {
+        $(".mapdata-container").css({ display: "none" });
+    }, 5000);
+    console.log("location button click");
+    // get location
+    // $.post("https://qb-fitbit/GetLocation");
+});
